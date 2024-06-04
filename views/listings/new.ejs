@@ -1,0 +1,71 @@
+<% layout("/layouts/boilerplate")  %>
+<body>
+ <div class="creListing">
+   <div class="newHead">
+    <h3 class="n-h">Create a New Listing</h3>
+   </div>
+   <div class="addform">
+    <form method="POST" action="/listings"  class="add-form  needs-validation" novalidate >
+
+      <div class="ti">
+        <label for="title">Title</label>
+        <br>
+        <input name="listing[title]" placeholder="enter title" id="title" type="text" required />
+        <div class="valid-feedback">
+          Title is looks good!
+        </div>
+      </div>
+      <br>
+      <div class="de">
+        <label for="description">Description</label>
+        <br>
+        <textarea name="listing[description]" id="description" placeholder="enter description" required ></textarea>
+        <div class="invalid-feedback">
+          Please enter a short description .
+        </div>
+      </div>
+      <br>
+      <div class="im">
+        <label for="image">Image</label>
+        <br>
+        <input name="listing[image]" placeholder="enter image URL" id="image" type="text" />
+
+      </div>
+      <br>
+      <div class="p-c">
+        <div class="pr">
+          <label for="price">Price</label>
+          <br>
+          <input name="listing[price]" placeholder="enter price" id="price" type="number" required />
+          <div class="invalid-feedback">
+            Please enter a short description .
+          </div>
+          
+        </div>
+        <div class="cou">
+          <label for="Countery">Countery</label>
+          <br>
+          <input name="listing[country]" placeholder="enter country" id="country" type="text" required />
+          <div class="invalid-feedback">
+            Countery should be right.
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="lo">
+        <label for="location">Location</label>
+        <br>
+        <input name="listing[location]" placeholder="enter location" id="location" type="text" required />
+        <div class="invalid-feedback">
+          Location should be right. 
+        </div>
+      </div>
+      <br>
+      <button class="addbtn" role="button">
+        <span class="text">Add</span>
+      </button>
+    </form>
+   </div>
+ </div>
+
+</body>

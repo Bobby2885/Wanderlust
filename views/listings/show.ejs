@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerplate")  %>
+<body>
+
+  <div class="listing-cont">
+    <h3><%= listing.title %></h3>
+    <div class="listinginfo">
+
+      <div class="li-im">
+        <img src="<%= listing.image %>" alt="Place pick" >     
+      </div>
+      <br>
+      <div class="li-des">
+       <b>Description :</b>
+        <%= listing.description %>
+      </div>
+      <br>
+      <div class="li-pr">
+        <b>Price :</b>
+        &#8377; <%= listing.price%>/night
+      </div>
+      <br>
+      <div class="li-adr">
+        <b>Countery:</b><%= listing.country %>&nbsp;&nbsp;&nbsp;
+        <b>Location:</b><%= listing.location %>
+      </div>
+      <br>
+      <div class="li-btn">
+        <div class="editbtn">
+          <a href="/listings/<%=listing._id %>/edit">
+            <button class="addbtn" role="button">
+              <span class="text">Edit</span>
+            </button>
+          </a>
+
+        </div>
+        <div class="delete-btn">
+          <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+            <button class="detbtn" role="button">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="review">
+      <div class="reviewinfo">
+        <p><%= listing.reviews %></p>
+      </div>
+
+
+      <div class="reviewform">
+        <h4>Leave a Review</h4>
+        <form method="POST" action="/listings/<%= listing._id %>/reviews"
+          novalidate class=" needs-validation" >
+          <div class="mb-3 rating-range">
+            <label for="rating" class="form-label mb-2">Rating</label>
+            <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]"/>
+          </div>
+          <div>
+            <label for="comment" class="form-label">Comments</label>
+            <textarea 
+             name="review[comment]"
+             id="comment"
+             cols="15"
+             rows="5"
+             class="form-control"
+             required
+             ></textarea> 
+             <div class="invalid-feedback">
+             Please write any Comment 
+            </div>        
+          </div>
+
+          <button  class="btn btn-outline-dark mt-3">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
